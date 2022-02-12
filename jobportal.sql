@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2022 at 12:45 PM
+-- Generation Time: Feb 12, 2022 at 12:53 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -51,8 +51,7 @@ INSERT INTO `addjob` (`jobId`, `companyId`, `companyName`, `jobRole`, `expRequir
 (3, 1, 'Lagoon', 'Software Engineer', '4-6', 'ASP.Net', 'Software Engineer', 'Thia is a template job', 'Full-Time', NULL, 'applied', 0, '2022-02-11 07:01:54'),
 (4, 1, 'Lagoon', 'Node JS Developer', '4', 'Node', 'Web Developer', 'this is template', 'Full-Time', NULL, 'no', 0, '2022-02-11 14:36:29'),
 (5, 1, 'Lagoon', 'Node JS Developer', '3', 'Node Js,Angular', 'Web Developer', 'this is a node js job', 'Full-Time', NULL, 'no', 0, '2022-02-11 18:07:19'),
-(6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'no', 0, '2022-02-12 09:17:07'),
-(7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'no', 0, '2022-02-12 09:17:28');
+(8, 1, 'Lagoon', 'Angular Developer', '6', 'Angular,HTML,CSS', 'Angular Developer', 'This is an Angular Developer Job', 'Full-Time', NULL, 'no', 0, '2022-02-12 11:49:05');
 
 -- --------------------------------------------------------
 
@@ -87,7 +86,9 @@ INSERT INTO `applyjob` (`Id`, `jobId`, `companyId`, `companyName`, `jobRole`, `e
 (3, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-02-12 14:09:44'),
 (5, 3, 1, 'Lagoon', 'Software Engineer', '2-4', 'ASP.Net', 'Engineering', 'Thia is a template job', 'Full-Time', NULL, 'applied', 1, '2022-02-11 07:01:54'),
 (6, 4, 1, 'Lagoon', 'Node JS Developer', '4', 'Node', 'Web Developer', 'this is template', 'Full-Time', NULL, 'applied', 1, '2022-02-11 14:36:29'),
-(7, 1, 1, 'Lagoon', 'Software Developer', '4', 'ASP.Net', 'B.E', 'software', 'Full-Time', NULL, 'applied', 2, NULL);
+(7, 1, 1, 'Lagoon', 'Software Developer', '4', 'ASP.Net', 'B.E', 'software', 'Full-Time', NULL, 'applied', 2, NULL),
+(8, 8, 1, 'Lagoon', 'Angular Developer', '6', 'Angular,HTML,CSS', 'Angular Developer', 'This is an Angular Developer Job', 'Full-Time', NULL, 'applied', 2, '2022-02-12 11:49:05'),
+(9, 4, 1, 'Lagoon', 'Node JS Developer', '4', 'Node', 'Web Developer', 'this is template', 'Full-Time', NULL, 'applied', 2, '2022-02-11 14:36:29');
 
 -- --------------------------------------------------------
 
@@ -186,13 +187,13 @@ ALTER TABLE `seeker`
 -- AUTO_INCREMENT for table `addjob`
 --
 ALTER TABLE `addjob`
-  MODIFY `jobId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `jobId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `applyjob`
 --
 ALTER TABLE `applyjob`
-  MODIFY `Id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `recruiter`

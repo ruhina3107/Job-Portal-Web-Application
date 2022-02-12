@@ -93,6 +93,7 @@ module.exports = function () {
           {
             var x= getUserAppliedJobs.data.length
             var newList = getUserAppliedJobs.data.map(e => e.jobId);
+            console.log(newList)
             var newLIst1 = parseInt(newList)
             console.log(newLIst1)
           
