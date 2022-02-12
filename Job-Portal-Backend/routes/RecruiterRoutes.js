@@ -8,13 +8,9 @@ module.exports = function(app) {
     var adminAuthService = new AdminAuthService();
     var common = new Common();
   
+    //recruiter login
   
-    app.post(`/recruiter/login`, [
-        // validator.check('Email').isEmail()
-        // .withMessage('INVALID: $[1],Email Id'),
-        // validator.check('Password').isLength({ min: 8, max: 15 })
-        // .withMessage('TEXT_LIMIT: $[1] $[2] $[3],password,8,15')
-    ],  (req, res) => {
+    app.post(`/recruiter/login`, [],  (req, res) => {
         var response = {}
         var data = req.body 
         console.log(data)
@@ -33,13 +29,10 @@ module.exports = function(app) {
         })  
     })
 
+  
+    //Post a Job
 
-    app.post(`/recruiters/addjob`, [
-        // validator.check('Email').isEmail()
-        // .withMessage('INVALID: $[1],Email Id'),
-        // validator.check('Password').isLength({ min: 8, max: 15 })
-        // .withMessage('TEXT_LIMIT: $[1] $[2] $[3],password,8,15')
-    ],  (req, res) => {
+    app.post(`/recruiters/addjob`, [],  (req, res) => {
         var response = {}
         var data = req.body 
         //data.companyId = req.params.Id
@@ -57,19 +50,13 @@ module.exports = function(app) {
             }
             console.log("final ",response)
             return res.send(response)
-        })
-
-        
-        
+        })   
     })
 
+    
+    //Get Posted Jobs 
 
-    app.get(`/recruiters/jobs/:Id`, [
-        // validator.check('Email').isEmail()
-        // .withMessage('INVALID: $[1],Email Id'),
-        // validator.check('Password').isLength({ min: 8, max: 15 })
-        // .withMessage('TEXT_LIMIT: $[1] $[2] $[3],password,8,15')
-    ],  (req, res) => {
+    app.get(`/recruiters/jobs/:Id`, [],  (req, res) => {
         var response = {}
         var data = req.body 
         data.companyId = req.params.Id
@@ -90,17 +77,13 @@ module.exports = function(app) {
         })    
     })
     
-    app.post(`/addrecruiter`, [
-      // validator.check('Email').isEmail()
-      // .withMessage('INVALID: $[1],Email Id'),
-      // validator.check('Password').isLength({ min: 8, max: 15 })
-      // .withMessage('TEXT_LIMIT: $[1] $[2] $[3],password,8,15')
-  ],  (req, res) => {
+
+    //Register Recruiter
+    app.post(`/addrecruiter`, [],  (req, res) => {
       var response = {}
       var data = req.body 
       console.log(data)
       adminAuthService.addrecruiter(data, (result) => {
-         
           if (result.error) {
             response.status = 0
          
@@ -114,13 +97,9 @@ module.exports = function(app) {
       })        
   })
 
-  
-  app.get(`/recruiters/seekers/:Id`, [
-    // validator.check('Email').isEmail()
-    // .withMessage('INVALID: $[1],Email Id'),
-    // validator.check('Password').isLength({ min: 8, max: 15 })
-    // .withMessage('TEXT_LIMIT: $[1] $[2] $[3],password,8,15')
-],  (req, res) => {
+  //Get Jobs Applied By Employees with name 
+
+  app.get(`/recruiters/seekers/:Id`, [],  (req, res) => {
     var response = {}
     var data = req.body 
     data.companyId = parseInt(req.params.Id)

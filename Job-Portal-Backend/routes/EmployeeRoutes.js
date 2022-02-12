@@ -20,13 +20,9 @@ const upload = multer({ storage: storage })
     var adminAuthService = new AdminAuthService();
     var common = new Common();
   
+    //login Route
   
-    app.post(`/employee/login`, [
-        // validator.check('Email').isEmail()
-        // .withMessage('INVALID: $[1],Email Id'),
-        // validator.check('Password').isLength({ min: 8, max: 15 })
-        // .withMessage('TEXT_LIMIT: $[1] $[2] $[3],password,8,15')
-    ],  (req, res) => {
+    app.post(`/employee/login`, [],  (req, res) => {
         var response = {}
         var data = req.body 
         console.log(data)
@@ -42,19 +38,11 @@ const upload = multer({ storage: storage })
             }
             console.log("final ",response)
             return res.send(response)
-        })
-
-        
-        
+        })        
     })
 
-
-    app.get(`/employees/getjobs/:userId`, [
-        // validator.check('Email').isEmail()
-        // .withMessage('INVALID: $[1],Email Id'),
-        // validator.check('Password').isLength({ min: 8, max: 15 })
-        // .withMessage('TEXT_LIMIT: $[1] $[2] $[3],password,8,15')
-    ],  (req, res) => {
+    //Get Non-Applied Jobs
+    app.get(`/employees/getjobs/:userId`, [],  (req, res) => {
         var response = {}
         var data = req.body 
         data.userId = req.params.userId
@@ -72,20 +60,12 @@ const upload = multer({ storage: storage })
             }
             console.log("final ",response)
             return res.send(response)
-        })
-
-       
-        
+        }) 
     })
 
-    
+    //Get Applied Jobs List
 
-    app.get(`/employees/appliedlist/:userId`, [
-      // validator.check('Email').isEmail()
-      // .withMessage('INVALID: $[1],Email Id'),
-      // validator.check('Password').isLength({ min: 8, max: 15 })
-      // .withMessage('TEXT_LIMIT: $[1] $[2] $[3],password,8,15')
-  ],  (req, res) => {
+    app.get(`/employees/appliedlist/:userId`, [],  (req, res) => {
       var response = {}
       var data = req.body
       data.userId = req.params.userId
@@ -104,19 +84,11 @@ const upload = multer({ storage: storage })
           }
           console.log("final ",response)
           return res.send(response)
-      })
-
-   
-      
+      }) 
   })
 
-
-    app.post(`/employees/apply/:userId/:jobId`, [
-      // validator.check('Email').isEmail()
-      // .withMessage('INVALID: $[1],Email Id'),
-      // validator.check('Password').isLength({ min: 8, max: 15 })
-      // .withMessage('TEXT_LIMIT: $[1] $[2] $[3],password,8,15')
-  ],  (req, res) => {
+    //Update Job Status Applied
+    app.post(`/employees/apply/:userId/:jobId`, [],  (req, res) => {
       var response = {}
       var data = req.body 
       data.userId = parseInt(req.params.userId)
@@ -139,13 +111,8 @@ const upload = multer({ storage: storage })
       }) 
   })
 
-  
-  app.post(`/addemployee`, [
-    // validator.check('Email').isEmail()
-    // .withMessage('INVALID: $[1],Email Id'),
-    // validator.check('Password').isLength({ min: 8, max: 15 })
-    // .withMessage('TEXT_LIMIT: $[1] $[2] $[3],password,8,15')
-],  (req, res) => {
+  //Register Employee Route
+  app.post(`/addemployee`, [],  (req, res) => {
     var response = {}
     var data = req.body 
     console.log(data)
@@ -165,13 +132,8 @@ const upload = multer({ storage: storage })
 })
   
 
-
-app.post(`/employee/uploadresume/:userId`, [
-  // validator.check('Email').isEmail()
-  // .withMessage('INVALID: $[1],Email Id'),
-  // validator.check('Password').isLength({ min: 8, max: 15 })
-  // .withMessage('TEXT_LIMIT: $[1] $[2] $[3],password,8,15')
-],  (req, res) => {
+//Upload Resume 
+app.post(`/employee/uploadresume/:userId`, [],  (req, res) => {
   var response = {}
   console.log(req)
   var data = req.body 
@@ -191,6 +153,8 @@ app.post(`/employee/uploadresume/:userId`, [
   })        
 })
 
+//File Upload Using Multer
+
 app.post('/file', upload.single('file'), (req, res, next) => {
   const file = req.file;
   console.log(file.filename);
@@ -203,13 +167,9 @@ app.post('/file', upload.single('file'), (req, res, next) => {
 })
 
 
+//Get Employee Profile
 
-app.get(`/employees/profile/:userId`, [
-  // validator.check('Email').isEmail()
-  // .withMessage('INVALID: $[1],Email Id'),
-  // validator.check('Password').isLength({ min: 8, max: 15 })
-  // .withMessage('TEXT_LIMIT: $[1] $[2] $[3],password,8,15')
-],  (req, res) => {
+app.get(`/employees/profile/:userId`, [],  (req, res) => {
   var response = {}
   //console.log(req)
   var data = req.body 
@@ -230,12 +190,10 @@ app.get(`/employees/profile/:userId`, [
   })        
 })
 
-app.put(`/employees/editprofile/:userId`, [
-  // validator.check('Email').isEmail()
-  // .withMessage('INVALID: $[1],Email Id'),
-  // validator.check('Password').isLength({ min: 8, max: 15 })
-  // .withMessage('TEXT_LIMIT: $[1] $[2] $[3],password,8,15')
-],  (req, res) => {
+
+//Edit Employee Profile
+
+app.put(`/employees/editprofile/:userId`, [],  (req, res) => {
   var response = {}
   var data = req.body 
   var userId = req.params.userId
@@ -255,12 +213,9 @@ app.put(`/employees/editprofile/:userId`, [
   })
 })
 
-app.get(`/employees/companyname/:companyname`, [
-  // validator.check('Email').isEmail()
-  // .withMessage('INVALID: $[1],Email Id'),
-  // validator.check('Password').isLength({ min: 8, max: 15 })
-  // .withMessage('TEXT_LIMIT: $[1] $[2] $[3],password,8,15')
-],  (req, res) => {
+//Search by company Name
+
+app.get(`/employees/companyname/:companyname`, [],  (req, res) => {
   var response = {}
   var data = req.body 
   data.companyName = req.params.companyname
@@ -281,13 +236,10 @@ app.get(`/employees/companyname/:companyname`, [
   })    
 })
 
-
-  app.get(`/employees/jobrole/:jobrole`, [
-    // validator.check('Email').isEmail()
-    // .withMessage('INVALID: $[1],Email Id'),
-    // validator.check('Password').isLength({ min: 8, max: 15 })
-    // .withMessage('TEXT_LIMIT: $[1] $[2] $[3],password,8,15')
-  ],  (req, res) => {
+  
+ //Search by Job Role
+ 
+  app.get(`/employees/jobrole/:jobrole`, [],  (req, res) => {
     var response = {}
     var data = req.body 
     data.jobRole = req.params.jobrole

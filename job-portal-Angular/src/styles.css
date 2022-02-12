@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-body{
-    font-family: 'Product Sans',sans-serif;
+body *{
+    font-family: "Times New Roman", Times, serif;
+}
+.bg-info2  ,.mt-1
+{
+    background-color: black;
+    color:white;
+    font-weight: bold;
 }

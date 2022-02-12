@@ -7,7 +7,7 @@ app.use('/public', express.static(path.join(__dirname, 'public')))
 var jwt = require('jsonwebtoken')
 const bodyParser = require('body-parser')
 
-require('D:/job-portal-client-angular-master/Job-Portal-Backend/Utils/common.js')()
+require('./Utils/common.js')()
 const { check, validationResult } = require('express-validator/check')
 const http = require('http').Server(app)
 

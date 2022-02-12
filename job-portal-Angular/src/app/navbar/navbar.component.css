@@ -32,7 +32,10 @@
 }
 
 
-
+.bg-info2
+{
+    background-color: black;
+}
 
 .leftpanel{
     /* border: 1px solid black; */
