@@ -41,7 +41,7 @@ const routes: Routes = [
     ]},
   {path:'seeker/eprofile',component:EmpProfileComponent},
   {path:'seeker/editprofile',component:EditprofileComponent},
-  {path:'recruiter/rprofile',component:RprofileComponent},
+  {path:'recruiter/rJobEdit/:Id',component:RprofileComponent},
   {
     path:'seeker/search',component:SearchComponent
   },

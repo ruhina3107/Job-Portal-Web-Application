@@ -119,7 +119,65 @@ module.exports = function(app) {
         return res.send(response)
     })    
 })
+
+
+//Delete a Job 
+app.post(`/recruiters/deleteJob`, [],  (req, res) => {
+  var response = {}
+  var data = req.body 
+  console.log(data)
+  adminAuthService.deleteJob(data, (result) => {
+      if (result.error) {
+        response.status = 0
+     
+      } else {
+          console.log("in")
+        response.status = 1
+       // response.data = result.data
+      }
+      console.log("final ",response)
+      return res.send(response)
+  })        
+})
  
+
+//GEt Job Details By Id 
+app.get(`/recruiters/EditJob/:jobId`, [],  (req, res) => {
+  var response = {}
+  var data = {}
+  data.jobId = parseInt(req.params.jobId)
+  adminAuthService.EditJob(data, (result) => {
+      if (result.error) {
+        response.status = 0
+     
+      } else {
+          console.log("in")
+        response.status = 1
+       response.data = result.data
+      }
+      console.log("final ",response)
+      return res.send(response)
+  })        
+})
+
+app.post(`/recruiters/EditJobDetails/:jobId`, [],  (req, res) => {
+  var response = {}
+  var data = {}
+  data = req.body
+  data.jobId = parseInt(req.params.jobId)
+  adminAuthService.EditJobDetails(data, (result) => {
+      if (result.error) {
+        response.status = 0
+     
+      } else {
+          console.log("in")
+        response.status = 1
+       response.data = result.data
+      }
+      console.log("final ",response)
+      return res.send(response)
+  })        
+})
 }
 
 

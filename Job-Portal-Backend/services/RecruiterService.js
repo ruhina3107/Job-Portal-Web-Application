@@ -177,5 +177,67 @@ module.exports = function () {
         callback(err)
       }
     }
+
+    this.deleteJob = async (data, callback) => {
+      var response = {}
+      try {
+        var appsliderdeletedata = { Id: data.jobId }
+        var appsliderData = await adminAuthRepository.jobDelete(appsliderdeletedata)
+        if (appsliderData.error === false) {
+          response.error = false
+          response.msg = 'VALID'
+        } else {
+          response.error = true
+          response.msg = 'FAILED'
+        }
+        callback(response)
+      } catch (err) {
+        err.error = true
+        err.msg = 'OOPS'
+        callback(err)
+      }
+    }
+
+    this.EditJob = async (data, callback) => {
+      var response = {}
+      try {
+        var appsliderEditdata = { Id: data.jobId }
+        var appsliderData = await adminAuthRepository.jobEdit(appsliderEditdata)
+        if (appsliderData.error === false) {
+          response.error = false
+          response.msg = 'VALID'
+          response.data = appsliderData.data
+        } else {
+          response.error = true
+          response.msg = 'FAILED'
+        }
+        callback(response)
+      } catch (err) {
+        err.error = true
+        err.msg = 'OOPS'
+        callback(err)
+      }
+    }
+
+    this.EditJobDetails = async (data, callback) => {
+      var response = {}
+      try {
+        console.log("ddd",data)
+        var appsliderData = await adminAuthRepository.jobEditDetails(data)
+        if (appsliderData.error === false) {
+          response.error = false
+          response.msg = 'VALID'
+          response.data = appsliderData.data
+        } else {
+          response.error = true
+          response.msg = 'FAILED'
+        }
+        callback(response)
+      } catch (err) {
+        err.error = true
+        err.msg = 'OOPS'
+        callback(err)
+      }
+    }
   }
   

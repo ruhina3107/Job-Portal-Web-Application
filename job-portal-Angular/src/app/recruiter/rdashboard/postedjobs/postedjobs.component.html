@@ -19,6 +19,13 @@
                             disabled>Posted</button>
                         <!-- <small>{{job.jobDetails.postedDate}}</small> -->
                     </td>
+                    <td><a [routerLink]="['/recruiter/rJobEdit', job.jobId]" class="btn btn-primary" style="width:100%;height:auto;border-radius: 45px;" >Edit</a>
+                    <!-- <small>{{job.jobDetails.postedDate}}</small> -->
+                    </td>
+                    <td><button class="btn btn-danger" style="width:100%;height:auto;border-radius: 45px;" (click)="delete(job)"
+                        >Delete</button>
+                    <!-- <small>{{job.jobDetails.postedDate}}</small> -->
+                    </td>
                     <!-- 
                         we need to bind the id of each job to the button,we can pass direct id or "job"
                         object if we want. 

@@ -7,7 +7,7 @@ import{ForrecruiterService} from '../../../forrecruiter.service';
   styleUrls: ['./postedjobs.component.css']
 })
 export class PostedjobsComponent implements OnInit {
-  headers=['Job Role','Experience','Job Type','PostedDate',''];
+  headers=['Job Role','Experience','Job Type','PostedDate','','',''];
   posted:any =[];
   nojobs:any;
   totaljobs:any;
@@ -42,4 +42,15 @@ export class PostedjobsComponent implements OnInit {
     }
     )
   }
+
+  delete(job)
+  {
+    console.log(job)
+    this.recservice.deleteJob(job).subscribe(res=>{console.log(res)})
+  }
+
+  Edit(job)
+  {
+    this.router.navigate(['recruiter/rprofile']);}
+  
 }

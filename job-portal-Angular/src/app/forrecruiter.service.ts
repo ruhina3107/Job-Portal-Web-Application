@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
-const PRIVATE='https://naukaries.herokuapp.com/private/';
-const PUBLIC='https://naukaries.herokuapp.com/public/';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -99,6 +98,43 @@ postjob(body:any)
   };
   return this.httpCli.post(`${this.url}recruiters/addjob`,body,httpOptions);
 }
+
+EditjobDetails(body:any,jobId)
+{
+  console.log(body)
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization': this.gettoken()
+    })
+  };
+  console.log(jobId)
+  return this.httpCli.post(`${this.url}recruiters/EditjobDetails/${jobId}`,body,httpOptions);
+}
+
+deleteJob(body)
+{
+  console.log(body)
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization': this.gettoken()
+    })
+  };
+  return this.httpCli.post(`${this.url}recruiters/deleteJob`,body,httpOptions);
+}
+
+EditJob(jobId)
+{
+  const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':'application/json',
+      'Authorization': this.gettoken()
+    })
+  };
+
+  return this.httpCli.get(`${this.url}recruiters/EditJob/${jobId}`,httpOptions);
+}
 getpayload()
 {
   let token:any=this.gettoken();
@@ -121,6 +157,8 @@ logout()
   localStorage.removeItem('currentrecruiter');
   // localStorage.removeItem('currentemployeeid')
 }
+
+
 }
 
 

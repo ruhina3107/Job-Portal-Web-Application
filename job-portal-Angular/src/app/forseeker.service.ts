@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment } from '../environments/environment';
 
-const PRIVATE='https://naukaries.herokuapp.com/private/';
-const PUBLIC='https://naukaries.herokuapp.com/public/';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -158,5 +157,7 @@ logout()
   localStorage.removeItem('token');
   localStorage.removeItem('currentemployee');
   localStorage.removeItem('currentemployeeid')
+  localStorage.removeItem('sId')
+  localStorage.removeItem('username')
 }
 }

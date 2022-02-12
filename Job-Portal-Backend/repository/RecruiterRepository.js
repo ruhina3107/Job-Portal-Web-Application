@@ -205,6 +205,92 @@ module.exports = function () {
             })
         })
       }
+
+
+      this.jobDelete = (data) => {
+        var output = {}
+        console.log(data)
+        return new Promise(function (resolve) {
+          var knex = new Knex(config)
+          knex(addJob)
+            .where('jobId',data.Id)
+            .del()
+            .then((result) => {
+              if (result) {
+                output.error = false
+               // output.data = result
+              } else {
+                output.error = true
+              }
+              resolve(output)
+            })
+            .catch((err) => {
+              err.error = true
+              err.data = null
+              resolve(err)
+            }).finally(() => {
+              knex.destroy()
+            })
+        })
+      }
+
+      this.jobEdit = (data) => {
+        var output = {}
+        console.log(data)
+        return new Promise(function (resolve) {
+          var knex = new Knex(config)
+          knex(addJob).select('*')
+           .where('jobId',data.Id)
+           
+            .then((result) => {
+              if (result) {
+                output.error = false
+                output.data = result
+              } else {
+                output.error = true
+                output.data = result
+              }
+              console.log(output)
+              resolve(output)
+            })
+            .catch((err) => {
+              err.error = true
+              err.data = null
+              resolve(err)
+            }).finally(() => {
+              knex.destroy()
+            })
+        })
+      }
+
+      this.jobEditDetails = (data) => {
+        var output = {}
+        console.log(data)
+        return new Promise(function (resolve) {
+          var knex = new Knex(config)
+          knex(addJob).select('*')
+           .where('jobId',data.jobId)
+           .update(data)
+            .then((result) => {
+              if (result) {
+                output.error = false
+                output.data = result
+              } else {
+                output.error = true
+                output.data = result
+              }
+              console.log(output)
+              resolve(output)
+            })
+            .catch((err) => {
+              err.error = true
+              err.data = null
+              resolve(err)
+            }).finally(() => {
+              knex.destroy()
+            })
+        })
+      }
   
   }
   
