@@ -155,6 +155,7 @@ logout()
 {
   localStorage.removeItem('token');
   localStorage.removeItem('currentrecruiter');
+  localStorage.removeItem('rId')
   // localStorage.removeItem('currentemployeeid')
 }
 
