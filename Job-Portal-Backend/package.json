@@ -1,0 +1,22 @@
+{
+  "name": "job-portal-backend",
+  "version": "1.0.0",
+  "description": "Job Portal Backend",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ruhina",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "dotnet": "^1.1.4",
+    "express": "^4.17.2",
+    "express-validator": "^6.14.0",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^1.0.2",
+    "multer": "^1.4.4",
+    "mysql2": "^2.3.3"
+  }
+}
